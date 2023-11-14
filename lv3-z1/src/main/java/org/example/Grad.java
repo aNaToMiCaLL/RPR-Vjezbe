@@ -1,29 +1,26 @@
 package org.example;
 
 public enum Grad {
-    Travnik("Travnik"),//do 11 je 030
-    Orašje("Orašje"),
-     Zenica("Zenica"),  //do 26 032
 
-    Sarajevo("Sarajevo"), //do 35 033
-     Livno("Livno"),   //do 41 034
-     Tuzla("Tuzla"),  //035
-    Mostar("Mostar"), //036
-    Bihać("Bihać"), //037
-    Goražde("Goražde"),//038
-    ŠirokiBrijeg("Široki Brijeg");//039
+    Travnik("030"),//do 11 je 030
+    Orašje("031"),
+     Zenica("032"),  //do 26 032
+
+    Sarajevo("033"), //do 35 033
+     Livno("034"),   //do 41 034
+     Tuzla("035"),  //035
+    Mostar("036"), //036
+    Bihać("037"), //037
+    Goražde("038"),//038
+    ŠirokiBrijeg("039");//039
 
 
-    private String ime="";
-    private Grad(String ime)
-    {
-        this.ime=ime;
+    private String pozivniBroj;
+
+    Grad(String number) {
+        pozivniBroj=number;
     }
-    @Override
-    public String toString()
-    {
-        return this.ime;
-    }
+
     public String dajBroj()
     {
         if(this==Travnik) return "030";
@@ -37,5 +34,15 @@ public enum Grad {
         else if(this==Goražde) return "038";
         else if(this==ŠirokiBrijeg) return "039";
         else return "";
+    }
+    public String getPozivniBroj() {
+        return pozivniBroj;
+    }
+    public static Grad izPozivnog(String pozivni){
+        for(Grad g : Grad.values()){
+            if(g.getPozivniBroj().equals(pozivni))
+                return g;
+        }
+        return null;
     }
 }

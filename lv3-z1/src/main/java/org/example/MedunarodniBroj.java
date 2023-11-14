@@ -1,11 +1,17 @@
 package org.example;
 
 public class MedunarodniBroj extends TelefonskiBroj{
-    MedunarodniBroj(String drzava,String broj){};
+    private String drzava;
+    private String broj;
+    MedunarodniBroj(String drzava,String broj)
+    {
+        this.drzava=drzava;
+        this.broj=broj;
+    };
 
     @Override
     public String ispisi() {
-        return null;
+        return drzava+broj;
     }
 
     @Override

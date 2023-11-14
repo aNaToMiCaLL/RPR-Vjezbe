@@ -1,15 +1,23 @@
 package org.example;
 
+import java.util.Objects;
+
 public class MobilniBroj extends TelefonskiBroj {
-    MobilniBroj(int mobilnaMreza,String broj){};
+    private int mobilnaMreza;
+    private String broj;
+    MobilniBroj(int mobilnaMreza,String broj)
+    {
+        this.mobilnaMreza=mobilnaMreza;
+        this.broj=broj;
+    };
 
     @Override
     public String ispisi() {
-        return null;
+        return mobilnaMreza +broj;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return Objects.hash(mobilnaMreza,broj);
     }
 }
