@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr;
 
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,12 +14,12 @@ public interface LaptopDao {
     ;
 
     default void dodajLaptopUFile(Laptop laptop) {
-        //String naziv=file.getPath();
-        FileReader unos=new FileReader();
-        Scanner unos1=new Scanner(unos);
-        while(unos1.hasNext())
+        try
         {
-            System.out.println(unos1.nextLine());
+            ObjectOutputStream unos=new ObjectOutputStream(new FileOutputStream(file));
+            unos.writeObject(laptop);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
     }
