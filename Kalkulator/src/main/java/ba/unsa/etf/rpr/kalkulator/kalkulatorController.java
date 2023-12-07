@@ -2,8 +2,7 @@ package ba.unsa.etf.rpr.kalkulator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
-import org.w3c.dom.events.MouseEvent;
+import javafx.scene.input.MouseEvent;
 
 
 public class kalkulatorController {
@@ -57,76 +56,76 @@ public class kalkulatorController {
         }
     }
     @FXML
-    private void Nula(javafx.scene.input.MouseEvent mouseEvent)
+    private void Nula(MouseEvent mouseEvent)
     {
         dodajBroj("0");
     }
     @FXML
-    private void Jedan(javafx.scene.input.MouseEvent mouseEvent)
+    private void Jedan(MouseEvent mouseEvent)
     {
         dodajBroj("1");
     }
     @FXML
-    private void Dva(javafx.scene.input.MouseEvent mouseEvent)
+    private void Dva(MouseEvent mouseEvent)
     {
         dodajBroj("2");
     }
     @FXML
-    private void Tri(javafx.scene.input.MouseEvent mouseEvent)
+    private void Tri(MouseEvent mouseEvent)
     {
         dodajBroj("3");
     }
     @FXML
-    private void Cetiri(javafx.scene.input.MouseEvent mouseEvent)
+    private void Cetiri(MouseEvent mouseEvent)
     {
         dodajBroj("4");
     }
     @FXML
-    private void Pet(javafx.scene.input.MouseEvent mouseEvent)
+    private void Pet(MouseEvent mouseEvent)
     {
         dodajBroj("5");
     }
     @FXML
-    private void Sest(javafx.scene.input.MouseEvent mouseEvent)
+    private void Sest(MouseEvent mouseEvent)
     {
         dodajBroj("6");
     }
     @FXML
-    private void Sedam(javafx.scene.input.MouseEvent mouseEvent) {
+    private void Sedam(MouseEvent mouseEvent) {
         dodajBroj("7");
     }
     @FXML
-    private void Osam(javafx.scene.input.MouseEvent mouseEvent)
+    private void Osam(MouseEvent mouseEvent)
     {
         dodajBroj("8");
     }
     @FXML
-    private void Devet(javafx.scene.input.MouseEvent mouseEvent)
+    private void Devet(MouseEvent mouseEvent)
     {
         dodajBroj("9");
     }
 
-    public void Mod(KeyEvent keyEvent) {
+    public void Mod(MouseEvent keyEvent) {
         izvrsiOperacija('%');
     }
 
-    public void Djeljenje(KeyEvent keyEvent) {
+    public void Djeljenje(MouseEvent keyEvent) {
         izvrsiOperacija('/');
     }
 
-    public void Množenje(KeyEvent keyEvent) {
+    public void Množenje(MouseEvent keyEvent) {
         izvrsiOperacija('*');
     }
 
-    public void Oduzimanje(KeyEvent keyEvent) {
+    public void Oduzimanje(MouseEvent keyEvent) {
         izvrsiOperacija('-');
     }
 
-    public void Sabiranje(KeyEvent keyEvent) {
+    public void Sabiranje(MouseEvent keyEvent) {
         izvrsiOperacija('%');
     }
 
-    public void Jednako(KeyEvent keyEvent) {
+    public void Jednako(MouseEvent keyEvent) {
         izvrsiOperacija(operacija);
         operacija=' ';
     }
