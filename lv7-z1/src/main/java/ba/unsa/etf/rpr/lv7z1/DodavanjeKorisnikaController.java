@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -23,7 +24,7 @@ public class DodavanjeKorisnikaController {
     @FXML
     public TextField txt4;
     @FXML
-    public TextField txt5;
+    public PasswordField txt5;
     @FXML
     public ListView<String> Lista;
     @FXML
@@ -41,7 +42,7 @@ public class DodavanjeKorisnikaController {
         txt2=new TextField();
         txt3=new TextField();
         txt4=new TextField();
-        txt5=new TextField();
+        txt5=new PasswordField();
         Lista=new ListView<>();
         greska=new Label();
     }
