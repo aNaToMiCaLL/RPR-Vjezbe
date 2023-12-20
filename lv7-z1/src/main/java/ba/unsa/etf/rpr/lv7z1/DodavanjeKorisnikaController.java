@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.lv7z1;
 
 import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -29,12 +30,13 @@ public class DodavanjeKorisnikaController {
     public ListView<String> Lista;
     @FXML
     public Label greska;
+    Korisnik trenutni=new Korisnik();
     private HashMap<String, ArrayList<String>> lista=new HashMap<>();
-    private String ime=new String();
+    /*nbprivate String ime=new String();
     private String prezime=new String();
     private String email=new String();
     private String username=new String();
-    private String sifra=new String();
+    private String sifra=new String();*/
     public DodavanjeKorisnikaController()
     {
 
@@ -48,26 +50,26 @@ public class DodavanjeKorisnikaController {
     }
     private void izmjeniAkoPostji(char c)
     {
-        if(lista.containsKey(username))
+        if(lista.containsKey(trenutni.getUsername().get()))
         {
-            ArrayList<String> podaci=lista.get(username);
+            ArrayList<String> podaci=lista.get(trenutni.getUsername().get());
             if(c=='I')
             {
-                podaci.set(0,ime);
+                podaci.set(0, trenutni.getIme().get());
             }
             else if(c=='P')
             {
-                podaci.set(1,prezime);
+                podaci.set(1, trenutni.getPrezime().get());
             }
             else if(c=='E')
             {
-                podaci.set(2,email);
+                podaci.set(2, trenutni.getEmail().get());
             }
             else if(c=='S')
             {
-                podaci.set(3,sifra);
+                podaci.set(3, trenutni.getSifra().get());
             }
-            lista.put(username,podaci);
+            lista.put(trenutni.getUsername().get(),podaci);
         }
     }
     @FXML
@@ -78,22 +80,24 @@ public class DodavanjeKorisnikaController {
     @FXML
     public void dodajKorisnika(MouseEvent mouseEvent)
     {
-        if(ime.isEmpty() || prezime.isEmpty() || email.isEmpty() || sifra.isEmpty() || username.isEmpty())
+        if(txt1.getText().isEmpty() || txt2.getText().isEmpty()
+                || txt3.getText().isEmpty() || txt4.getText().isEmpty() ||
+                txt5.getText().isEmpty())
             greska.setText("UNESITE SVE PODATKE!");
         else
         {
-            if(lista.containsKey(username))
+            if(lista.containsKey(trenutni.getUsername().get()))
             {
                 greska.setText("Korisnik vec postoji");
             }
             else
             {
                 ArrayList<String> podaci=new ArrayList<>();
-                podaci.add(ime);
-                podaci.add(prezime);
-                podaci.add(email);
-                podaci.add(sifra);
-                lista.put(username,podaci);
+                podaci.add(trenutni.getIme().get());
+                podaci.add(trenutni.getPrezime().get());
+                podaci.add(trenutni.getEmail().get());
+                podaci.add(trenutni.getSifra().get());
+                lista.put(trenutni.getUsername().get(),podaci);
                 Set<String> imena=lista.keySet();
                 ArrayList<String> svaImena=new ArrayList<>();
                 for(String ime:imena)
@@ -101,6 +105,11 @@ public class DodavanjeKorisnikaController {
                     svaImena.add(ime);
                 }
                 Lista.setItems(FXCollections.observableList(svaImena));
+                txt1.setText("");
+                txt2.setText("");
+                txt3.setText("");
+                txt4.setText("");
+                txt5.setText("");
             }
         }
     }
@@ -108,34 +117,34 @@ public class DodavanjeKorisnikaController {
     public void dodajIme(KeyEvent keyEvent)
     {
         greska.setText("");
-        ime=txt1.getText();
+        trenutni.setIme(txt1.getText());
         izmjeniAkoPostji('I');
     }
     @FXML
     public void dodajPrezime(KeyEvent keyEvent)
     {
         greska.setText("");
-        prezime=txt2.getText();
+        trenutni.setPrezime(txt2.getText());
         izmjeniAkoPostji('P');
     }
     @FXML
     public void dodajEmail(KeyEvent keyEvent)
     {
         greska.setText("");
-        email=txt3.getText();
+        trenutni.setEmail(txt3.getText());
         izmjeniAkoPostji('E');
     }
     @FXML
     public void dodajUsername(KeyEvent keyEvent)
     {
         greska.setText("");
-        username=txt4.getText();
+        trenutni.setUsername(txt4.getText());
     }
     @FXML
     public void dodajSifru(KeyEvent keyEvent)
     {
         greska.setText("");
-        sifra=txt5.getText();
+        trenutni.setSifra(txt5.getText());
         izmjeniAkoPostji('S');
     }
     @FXML
@@ -145,17 +154,17 @@ public class DodavanjeKorisnikaController {
         String temp=Lista.getSelectionModel().getSelectedItem();
         if(lista.containsKey(temp))
         {
-            username=temp;
-        ArrayList<String> podaci=lista.get(username);
-        ime= podaci.get(0);
-        prezime=podaci.get(1);
-        email=podaci.get(2);
-        sifra=podaci.get(3);
-        txt1.setText(ime);
-        txt2.setText(prezime);
-        txt3.setText(email);
-        txt4.setText(username);
-        txt5.setText(sifra);
+            trenutni.setUsername(temp);
+        ArrayList<String> podaci=lista.get(trenutni.getUsername().get());
+        trenutni.setIme(podaci.get(0));
+        trenutni.setPrezime(podaci.get(1));
+        trenutni.setEmail(podaci.get(2));
+        trenutni.setSifra(podaci.get(3));
+        txt1.setText(trenutni.getIme().get());
+        txt2.setText(trenutni.getPrezime().get());
+        txt3.setText(trenutni.getEmail().get());
+        txt4.setText(trenutni.getUsername().get());
+        txt5.setText(trenutni.getSifra().get());
         }
     }
 }
