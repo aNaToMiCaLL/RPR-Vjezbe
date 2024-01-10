@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane dividerPositions="0.7254464285714286" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <TableView layoutX="1.0" layoutY="-2.0" prefHeight="400.0" prefWidth="430.0">
+              <columns>
+                <TableColumn fx:id="colGradId" prefWidth="60.00002861022949" text="ID" />
+                <TableColumn fx:id="colGradNaziv" prefWidth="121.9999771118164" text="Naziv" />
+                  <TableColumn fx:id="colGradStanovnika" prefWidth="140.6666717529297" text="Broj stanovnika" />
+                  <TableColumn fx:id="colGradDrzava" prefWidth="104.66668701171875" text="Država" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="btnDodajGrad" layoutX="19.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Dodaj grad" />
+            <Button fx:id="brnDodajDrzavu" layoutX="19.0" layoutY="47.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Dodaj državu" />
+            <Button fx:id="btnIzmijeniGrad" layoutX="19.0" layoutY="83.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Izmijeni grad" />
+            <Button fx:id="btnObrišiGrad" layoutX="19.0" layoutY="117.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Obriši grad" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
